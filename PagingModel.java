@@ -7,6 +7,10 @@ public class PagingModel<T> implements Serializable {
 
 	public static final int DEFAULT_PAGE_SIZE = 10;
 
+	public PagingModel() {
+		super();
+	}
+	
 	protected PagingModel(List<T> pageData, int pageSize,
 			int totalNumberOfData, int currentPage) {
 		super();
@@ -161,4 +165,50 @@ public class PagingModel<T> implements Serializable {
 		this.totalPages = totalPages;
 	}
 
+	public static class PagingRowBound<T> {
+		private T queryContext;
+		private int offset;
+		private int limit;
+		public int getOffset() {
+			return offset;
+		}
+		public void setOffset(int offset) {
+			this.offset = offset;
+		}
+		public int getLimit() {
+			return limit;
+		}
+		public void setLimit(int limit) {
+			this.limit = limit;
+		}
+		public T getQueryContext() {
+			return queryContext;
+		}
+		public void setQueryContext(T queryContext) {
+			this.queryContext = queryContext;
+		}
+	}
+	public static class PagingPageContext<T> {
+		private T queryContext;
+		private int pageSize;
+		private int currentPage;
+		public int getPageSize() {
+			return pageSize;
+		}
+		public void setPageSize(int pageSize) {
+			this.pageSize = pageSize;
+		}
+		public int getCurrentPage() {
+			return currentPage;
+		}
+		public void setCurrentPage(int currentPage) {
+			this.currentPage = currentPage;
+		}
+		public T getQueryContext() {
+			return queryContext;
+		}
+		public void setQueryContext(T queryContext) {
+			this.queryContext = queryContext;
+		}
+	}
 }
